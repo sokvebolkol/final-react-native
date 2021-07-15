@@ -8,9 +8,10 @@
     "invalidEmail": "Invalid email address."
   },
   "welcomeScreen": {
-    "poweredBy": "POWERED BY IGNITE",
+    "poweredBy": "POWERED BY UP STUDENT",
     "readyForLaunch": "Ready for launch.",
-    "continue": "CONTINUE"
+    "continue": "CONTINUE", 
+    "application": "Application"
   },
   "demoScreen": {
     "howTo": "HOW TO",
@@ -30,5 +31,8 @@
   "storybook": {
     "placeholder": "Placeholder",
     "field": "Field"
+  },
+  "login":{
+    "login.enter-phone-number": "Please enter your phone number"
   }
 }

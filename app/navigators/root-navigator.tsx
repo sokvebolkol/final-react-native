@@ -8,6 +8,7 @@ import React from "react"
 import { NavigationContainer, NavigationContainerRef } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { MainNavigator } from "./main-navigator"
+import { Login } from "../components/screen/auth/Login"
 import { color } from "../theme"
 
 /**
@@ -22,6 +23,7 @@ import { color } from "../theme"
  */
 export type RootParamList = {
   mainStack: undefined
+  login: undefined
 }
 
 const Stack = createStackNavigator<RootParamList>()
@@ -37,6 +39,13 @@ const RootStack = () => {
       <Stack.Screen
         name="mainStack"
         component={MainNavigator}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="login"
+        component={Login}
         options={{
           headerShown: false,
         }}

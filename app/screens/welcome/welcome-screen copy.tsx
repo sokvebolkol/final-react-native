@@ -6,38 +6,6 @@ import { Button, Header, Screen, Text, Wallpaper, AutoImage as Image } from "../
 import { color, spacing, typography } from "../../theme"
 const bowserLogo = require("./bowser.png")
 
-export const WelcomeScreen = observer(function WelcomeScreen() {
-  const navigation = useNavigation()
-  const nextScreen = () => navigation.navigate("login")
-
-  return (
-    <View testID="WelcomeScreen" style={FULL}>
-      <Wallpaper />
-      <Screen style={CONTAINER} preset="scroll" backgroundColor={color.transparent}>
-        <Header headerTx="welcomeScreen.poweredBy" style={HEADER} titleStyle={HEADER_TITLE} />
-        <Text style={TITLE_WRAPPER}>
-          <Text style={TITLE} text="Welcome to, " />
-          <Text style={ALMOST} text="Delivery" />
-        </Text>
-        <Text style={TITLE} preset="header" tx="welcomeScreen.application"  />
-        <Image source={bowserLogo} style={BOWSER} />
-      </Screen>
-      <SafeAreaView style={FOOTER}>
-        <View style={FOOTER_CONTENT}>
-          <Button
-            testID="next-screen-button"
-            style={CONTINUE}
-            textStyle={CONTINUE_TEXT}
-            tx="welcomeScreen.continue"
-            onPress={nextScreen}
-          />
-        </View>
-      </SafeAreaView>
-    </View>
-  )
-});
-
-
 const FULL: ViewStyle = { flex: 1 }
 const CONTAINER: ViewStyle = {
   backgroundColor: color.transparent,
@@ -85,6 +53,13 @@ const BOWSER: ImageStyle = {
   width: 343,
   height: 230,
 }
+const CONTENT: TextStyle = {
+  ...TEXT,
+  color: "#BAB6C8",
+  fontSize: 15,
+  lineHeight: 22,
+  marginBottom: spacing[5],
+}
 const CONTINUE: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
@@ -102,3 +77,42 @@ const FOOTER_CONTENT: ViewStyle = {
   paddingHorizontal: spacing[4],
 }
 
+export const WelcomeScreen = observer(function WelcomeScreen() {
+  const navigation = useNavigation()
+  const nextScreen = () => navigation.navigate("demo")
+
+  return (
+    <View testID="WelcomeScreen" style={FULL}>
+      <Wallpaper />
+      <Screen style={CONTAINER} preset="scroll" backgroundColor={color.transparent}>
+        <Header headerTx="welcomeScreen.poweredBy" style={HEADER} titleStyle={HEADER_TITLE} />
+        <Text style={TITLE_WRAPPER}>
+          <Text style={TITLE} text="Your new app, " />
+          <Text style={ALMOST} text="almost" />
+          <Text style={TITLE} text="!" />
+        </Text>
+        <Text style={TITLE} preset="header" tx="welcomeScreen.readyForLaunch" />
+        <Image source={bowserLogo} style={BOWSER} />
+        <Text style={CONTENT}>
+          This probably isn't what your app is going to look like. Unless your designer handed you
+          this screen and, in that case, congrats! You're ready to ship.
+        </Text>
+        <Text style={CONTENT}>
+          For everyone else, this is where you'll see a live preview of your fully functioning app
+          using Ignite.
+        </Text>
+      </Screen>
+      <SafeAreaView style={FOOTER}>
+        <View style={FOOTER_CONTENT}>
+          <Button
+            testID="next-screen-button"
+            style={CONTINUE}
+            textStyle={CONTINUE_TEXT}
+            tx="welcomeScreen.continue"
+            onPress={nextScreen}
+          />
+        </View>
+      </SafeAreaView>
+    </View>
+  )
+})
